@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>ML-Web-APP</title>
+
+<link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css')}}" /></link>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <center>
+            <h1>Application of Machine Learning <br>in Diabetes prediction</h1>
+        </center>
+
+
+        <p>
+            Diabetes is a disease that occurs when your blood glucose, also called blood sugar, is too high. Blood glucose is your main source of energy and comes from the food you eat. Insulin is a hormone that regulates blood sugar and in diabetic patients the condition is that the pancreas does not produce enough insulin (also known as type-1 diabetes) or  their body cannot effectively use the produced insulin (also known as type-2 diabetes). Diabetes dramatically increases the risk of various cardiovascular problems, including coronary artery disease with chest pain (angina), heart attack, stroke and narrowing of arteries (atherosclerosis). If you have diabetes, you're more likely to have heart disease or stroke. 
+            </p>
+        <p>
+            With the help of Machine Learning and availability of patient data, now we can predict whether a person has diabetic condition or not before hand, without compromising much on prediction accuracy.
+            Please fill in the form below to get the prediction from the Model.
+        </p>  <br><br>
+    
+
+        <center>
+            <form action="/predict" method="POST"
+             onsubmit = "return !!(validateAge() & validateBMI() & validateGlucose() & validateInsulin() & validateSkin() & 
+             validateBP());" name = "predictor">
+             <div class = "form-section">
+
+            
+                <b>Enter your age:</b>
+                <input type="number" id="age" name="age" style = "border:3px solid teal">
+                <a id = "valid-age" style = "color:orange; font-size:20px; visibility: hidden;">Invalid Entry!</a>
+
+                <br><br><br><br>
+            
+                <b>Enter your BMI (Body Mass Index):</b>
+                <input type="number" id="BMI" name="BMI" style = "border:3px solid teal" step=".001">
+                <a id = "valid-BMI" style = "color:orange; font-size:20px; visibility: hidden;">Invalid Entry!</a>
+                <br><br><br><br>
+
+                <b>Enter your average glucose level (mg/dL):</b>
+                <input type="number" id="glucose" name="glucose" style = "border:3px solid teal" step=".001">
+                <a id = "valid-glucose" style = "color:orange; font-size:20px; visibility: hidden;">Invalid Entry!</a>
+                <br><br><br><br>
+
+                <b>Enter your Insulin level (mu U/ml):</b>
+                <input type="number" id="insulin" name="insulin" style = "border:3px solid teal" step=".001">
+                <a id = "valid-insulin" style = "color:orange; font-size:20px; visibility: hidden;">Invalid Entry!</a>
+                <br><br><br><br>
+
+                <b>Enter your triceps skin fold thickness (mm): </b>
+                <input type="number" id="skin" name="skin" style = "border:3px solid teal" step=".001">
+                <a id = "valid-skin" style = "color:orange; font-size:20px; visibility: hidden;">Invalid Entry!</a>
+                <br><br><br><br>
+
+                <b>Enter your Blood pressure (mm Hg):</b>
+                <input type="number" id="BP" name="BP" style = "border:3px solid teal" step=".001">
+                <a id = "valid-BP" style = "color:orange; font-size:20px; visibility: hidden;">Invalid Entry!</a>
+                <br><br><br><br>
+                
+            
+                <button type="submit" id= "submit-btn" class="button" onclick="return required_fields();">
+                <span class="button__text">Predict</span>
+                </button>
+                <div>
+                <script type = "text/javascript">
+                        function validateAge()
+                        {    
+                                                
+
+                            var age_ = document.getElementById('age').value.trim();
+
+                            var regx = /^0[0-9].*$/                          
+                
+                            if (age_ < 0 || regx.test(age_)) {
+  
+                                age.style.border = "solid 3px orange";
+                                document.getElementById('valid-age')
+                                .style.visibility = 'visible';
+
+                                return false;
+                                }
+
+
+                            else if (age_ > 0 || regx.test(age_) == false ) {
+    
+                                age.style.border = "solid 3px teal";
+                                document.getElementById('valid-age')
+                                .style.visibility = 'hidden';
+
+                                return true; }
+                  
+                          
+                        }               
+                
+                    function validateBMI(){
+                                   
+                        var BMI_ = document.getElementById('BMI').value.trim();
+
+                        var regx = /^0[0-9].*$/                          
+
+                        if (BMI_ < 0 || regx.test(BMI_)) {
+
+                            BMI.style.border = "solid 3px orange";
+                            document.getElementById('valid-BMI')
+                            .style.visibility = 'visible';
+
+                            return false;
+                            }
+
+
+                        else if (BMI_ > 0 || regx.test(BMI_) == false ) {
+
+                            BMI.style.border = "solid 3px teal";
+                            document.getElementById('valid-BMI')
+                            .style.visibility = 'hidden';
+                            return true;
+                            }                       
+                        }
+
+                    function validateGlucose()
+                    {         
+                        var glucose_ = document.getElementById('glucose').value.trim();
+
+                        var regx = /^0[0-9].*$/                          
+
+                        if (glucose_ < 0 || regx.test(glucose_)) {
+
+                            glucose.style.border = "solid 3px orange";
+                            document.getElementById('valid-glucose')
+                            .style.visibility = 'visible';
+
+                            return false;
+                            }
+                        else if (glucose_ > 0 || regx.test(glucose_) == false ) {
+
+                            glucose.style.border = "solid 3px teal";
+                            document.getElementById('valid-glucose')
+                            .style.visibility = 'hidden';
+
+                            return true; }
+                       } 
+
+                       function validateSkin()
+                    {         
+                        var skin_ = document.getElementById('skin').value.trim();
+
+                        var regx = /^0[0-9].*$/                          
+
+                        if (skin_ < 0 || regx.test(skin_)) {
+
+                            skin.style.border = "solid 3px orange";
+                            document.getElementById('valid-skin')
+                            .style.visibility = 'visible';
+
+                            return false;
+                            }
+                        else if (skin_ > 0 || regx.test(skin_) == false ) {
+
+                            skin.style.border = "solid 3px teal";
+                            document.getElementById('valid-skin')
+                            .style.visibility = 'hidden';
+
+                            return true; }
+                       }
+                      
+                       
+                       function validateInsulin()
+                    {         
+                        var insulin_ = document.getElementById('insulin').value.trim();
+
+                        var regx = /^0[0-9].*$/                          
+
+                        if (insulin_ < 0 || regx.test(insulin_)) {
+
+                            insulin.style.border = "solid 3px orange";
+                            document.getElementById('valid-insulin')
+                            .style.visibility = 'visible';
+
+                            return false;
+                            }
+                        else if (insulin_ > 0 || regx.test(insulin_) == false ) {
+
+                            insulin.style.border = "solid 3px teal";
+                            document.getElementById('valid-insulin')
+                            .style.visibility = 'hidden';
+
+                            return true; }
+                       }
+
+
+                       function validateBP()
+                    {         
+                        var BP_ = document.getElementById('BP').value.trim();
+
+                        var regx = /^0[0-9].*$/                          
+
+                        if (BP_ < 0 || regx.test(BP_)) {
+
+                            BP.style.border = "solid 3px orange";
+                            document.getElementById('valid-BP')
+                            .style.visibility = 'visible';
+
+                            return false;
+                            }
+                        else if (BP_ > 0 || regx.test(BP_) == false ) {
+
+                            BP.style.border = "solid 3px teal";
+                            document.getElementById('valid-BP')
+                            .style.visibility = 'hidden';
+
+                            return true; }
+                    }
+                       
+
+
+
+                    function validateForm(){
+                        var validation = true;
+                        validation &= validateAge();
+                        validation &= validateBMI();
+                        validation &= validateGlucose();
+                        validation &= validateInsulin();
+                        validation &= validateBP();
+                        validation &= validateSkin();
+                        return validation;
+                        }
+                    
+
+
+                       function required_fields() {
+                           var age_ = document.getElementById('age').value.trim();
+                           var BMI_ = document.getElementById('BMI').value.trim();
+                           var glucose_ = document.getElementById('glucose').value.trim();
+                           var insulin_ = document.getElementById('insulin').value.trim();
+                           var skin_ = document.getElementById('skin').value.trim();
+                           var BP_ = document.getElementById('BP').value.trim();
+
+                         if (age_ == '' || BMI_ == '' || glucose_ == '' || insulin_ == '' || skin_ == '' || BP_ == '')
+                          {
+                            alert('No blank fields allowed!');
+                            return false;
+                         }
+                           
+                          
+                           
+
+
+                       }
+                    
+                    
+                
+
+
+                  
+         
+</script>
+
+
+               
+
+
+            </form>
+        </center>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>ML-Web-APP</title>
+
+<link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css')}}" /></link>
+
+</head>
+
+<body>
+  <center>
+  
+  <div class="container-2">
+    <br>
+  <h2>Prediction</h2>
+  <div class = "pred-section">
+
+
+  <p2 id = "pred-text"  style = "color:rgb(14, 159, 179);"></p2><br><br><p2 id = "pred-text-2"></p2>
+  <a id = "url-link" href="https://www.medicinenet.com/diabetes_prevention/article.htm" target="_blank"  style = "color:rgb(14, 159, 179);">article</a><p2 id = ".">.</p2>
+<script type="text/javascript">
+
+  
+  var pred = '{{pred}}';
+  console.log(pred);
+
+  var pred_proba = '{{pred_proba}}';
+  console.log(pred_proba);
+  
+    if ( pred_proba <= 0.465){
+      document.getElementById("pred-text").innerHTML = "GREAT! The Model Predicted that you don't have DIABETES.";
+      document.getElementById("url-link").style.display = "none";
+      document.getElementById(".").style.display = "none";
+    }
+    
+  else{
+    document.getElementById("pred-text").innerHTML = "The Model predicted that you have DIABETES!"; 
+    document.getElementById("pred-text-2").innerHTML = "For more guidlines and tips regarding diabetes prevention, please refer to this"; 
+  }
+
+  </script>
+  
+
+</div>
+</center> 
+
+</div>
+
+</body>
+</html>

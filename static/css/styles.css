@@ -1,0 +1,270 @@
+@charset "utf-8";
+
+
+
+
+
+.container{
+position:relative;
+display:block;
+padding: 30px;
+}
+
+.container::before{
+content:"";
+background-image: url(../images/img_8.gif);
+position:absolute;
+top:0;
+bottom:0;
+right:0;
+left:0;
+width:auto;
+height:auto;
+z-index:-3;
+
+}
+
+.container h1{
+text-align:center;
+font-size:49px;
+}
+
+
+
+.container-2{
+
+display:block;
+padding: 30px;
+background-image: url(../images/img_8-b.gif);
+position:absolute;
+top:0;
+bottom:0;
+right:0;
+left:0;
+width:auto;
+height:auto;
+z-index:-3;
+
+}
+
+
+
+.container-2 h2{
+text-align:center;
+font-size:49px;
+}
+
+p2 {
+color: #d3eeee;
+font-family: Verdana, sans-serif;
+
+font-size:20px;
+}
+.form-section {
+position: relative;
+text-align: center;
+border-style: solid;
+border-width: 6px;
+display: inline-block;
+color: rgb(8, 127, 136);
+padding: 20px;
+background-color: rgb(30, 41, 44);
+border-radius: 15px;
+}
+
+.pred-section {
+	position: relative;
+	text-align: center;
+	border-style: solid;
+	border-width: 6px;
+	display: inline-block;
+	color:  rgb(8, 127, 136);
+	padding: 25px;
+	background-color: rgb(30, 41, 44);
+	border-radius: 15px;
+	}
+	
+
+#url-link {
+	font-size:20px;
+	color: #3bd1d1;
+	font-family: Verdana, sans-serif;
+}
+  
+
+p {
+color: #d3eeee;
+font-family: Verdana, sans-serif;
+
+font-size:20px;
+}
+
+#age {
+	border-radius: 20px;
+	width: 100px;
+	height: 20px;
+	font-family: Verdana, sans-serif;
+	color: rgb(30, 41, 44);
+	font-size:17px;
+	font-weight: bold
+	
+}
+#BMI {
+	border-radius: 20px;
+	width: 100px;
+	height: 20px;
+	font-family: Verdana, sans-serif;
+	color: rgb(30, 41, 44);
+	font-size:17px;
+	font-weight: bold
+}
+#glucose {
+	border-radius: 20px;
+	width: 100px;
+	height: 20px;
+	font-family: Verdana, sans-serif;
+	color: rgb(30, 41, 44);
+	font-size:17px;
+	font-weight: bold
+}
+
+#BP {
+	border-radius: 20px;
+	width: 100px;
+	height: 20px;
+	font-family: Verdana, sans-serif;
+	color: rgb(30, 41, 44);
+	font-size:17px;
+	font-weight: bold
+}
+
+
+#skin {
+	border-radius: 20px;
+	width: 100px;
+	height: 20px;
+	font-family: Verdana, sans-serif;
+	color: rgb(30, 41, 44);
+	font-size:17px;
+	font-weight: bold
+}
+
+
+#insulin {
+	border-radius: 20px;
+	width: 100px;
+	height: 20px;
+	font-family: Verdana, sans-serif;
+	color: rgb(30, 41, 44);
+	font-size:17px;
+	font-weight: bold
+}
+
+
+
+.option {
+	color: rgb(153, 58, 58);
+
+}
+
+h1 {
+	font-family: Verdana, sans-serif;
+	color:  rgb(32, 154, 158);
+}
+
+h2 {
+	font-family: Verdana, sans-serif;
+	color:  rgb(32, 154, 158);
+	font-size: 49px;
+}
+
+span{
+	font-size: 17px;
+	color: #d3eeee;
+}
+
+
+b{
+	font-size: 18px;
+	color: #d3eeee;
+	font-family: Verdana, sans-serif;
+}
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #d3eeee;
+	font-family: Verdana, sans-serif;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid rgb(8, 127, 136);
+    border-radius: 100%;
+    background:  rgb(35, 45, 48);
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #65d1d4;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+
+.button {
+	background: #19b2b8;
+	position: relative;
+	border: 3px solid rgb(5, 13, 26);
+	border-radius: 22px;
+	top: 0px;
+	text-shadow:none;
+	font-size: 18px;
+  }
+
+  .button:hover {
+	background-color: rgb(32, 79, 85)
+
+  }
+  
+  .button:active {
+	background: #082b31;
+	top: 1px;
+  }
+  
+  .button__text {
+	font: bold 20px  Verdana, sans-serif;
+	color: #e8f3f3;
+  }
+  
